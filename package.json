@@ -1,6 +1,6 @@
 {
 	"name": "aria-gh-action",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"main": "dist/index.mjs",
 	"module": "dist/index.mjs",
 	"scripts": {},
@@ -13,5 +13,8 @@
 		"@actions/github": "^6.0.0",
 		"@igor.dvlpr/aria": "^2.1.0",
 		"@vercel/ncc": "^0.38.1"
+	},
+	"devDependencies": {
+		"@types/node": "20.14.6"
 	}
 }
