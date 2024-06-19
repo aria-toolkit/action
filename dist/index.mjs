@@ -31585,14 +31585,16 @@ module.exports = parseParams
 __nccwpck_require__.a(__webpack_module__, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(2186);
 /* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(5438);
-/* harmony import */ var _igor_dvlpr_aria_dist_lib_compiler_Aria_mjs__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(5095);
+/* harmony import */ var _igor_dvlpr_aria_dist_lib_compiler_Aria_mjs__WEBPACK_IMPORTED_MODULE_3__ = __nccwpck_require__(5095);
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(7147);
+
 
 
 
 
 try {
   console.log('Wow')
-  const aria = new _igor_dvlpr_aria_dist_lib_compiler_Aria_mjs__WEBPACK_IMPORTED_MODULE_2__/* .Aria */ .$({
+  const aria = new _igor_dvlpr_aria_dist_lib_compiler_Aria_mjs__WEBPACK_IMPORTED_MODULE_3__/* .Aria */ .$({
     shouldLog: false,
     versioning: 'auto',
   })
@@ -31613,7 +31615,7 @@ try {
 
   console.log(data)
 
-  files = data.files.map((file) => file.raw_url)
+  files = data.files.map((file) => file.filename)
   // } else if (context.eventName === 'pull_request') {
   //   const { data } = await octokit.rest.pulls.listFiles({
   //     owner: context.repo.owner,
@@ -31622,10 +31624,10 @@ try {
   //   })
   //   files = data.map((file) => file.filename)
 
-  files.forEach(async (adbt) => {
+  files.forEach((adbt) => {
+    const contents = (0,fs__WEBPACK_IMPORTED_MODULE_2__.readFileSync)(adbt).toString()
+    console.log(contents)
     // aria.parseFile(adbt)
-    const contents = await fetch(adbt)
-    console.log(await contents.text())
   })
 } catch (error) {
   (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(error.message)
