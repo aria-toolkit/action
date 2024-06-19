@@ -31593,14 +31593,12 @@ __nccwpck_require__.a(__webpack_module__, async (__webpack_handle_async_dependen
 
 
 try {
-  console.log('Wow')
   const aria = new _igor_dvlpr_aria_dist_lib_compiler_Aria_mjs__WEBPACK_IMPORTED_MODULE_3__/* .Aria */ .$({
     shouldLog: false,
     versioning: 'auto',
   })
-  console.log(aria)
 
-  const token = process.env.GITHUB_TOKEN
+  const token = process.env.GITHUB_TOKEN || ''
   const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(token)
   const context = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context
 
@@ -31613,22 +31611,16 @@ try {
     ref: commit,
   })
 
-  console.log(data)
+  files = data.files?.map((file) => file.filename)
 
-  files = data.files.map((file) => file.filename)
-  // } else if (context.eventName === 'pull_request') {
-  //   const { data } = await octokit.rest.pulls.listFiles({
-  //     owner: context.repo.owner,
-  //     repo: context.repo.repo,
-  //     pull_number: context.payload.number,
-  //   })
-  //   files = data.map((file) => file.filename)
-
-  files.forEach((adbt) => {
-    const contents = (0,fs__WEBPACK_IMPORTED_MODULE_2__.readFileSync)(adbt)
-    console.log(contents.toString())
-    // aria.parseFile(adbt)
-  })
+  if (!files || files.length === 0) {
+    (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)('No changed files found.')
+  } else {
+    files.forEach((adbt) => {
+      const contents = (0,fs__WEBPACK_IMPORTED_MODULE_2__.readFileSync)(adbt, 'utf-8')
+      console.log(aria.parse(contents).nodes)
+    })
+  }
 } catch (error) {
   (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(error.message)
 }
