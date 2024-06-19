@@ -26,14 +26,12 @@ try {
 
   if (!files || files.length === 0) {
     setFailed('No changed files found.')
-    // @ts-ignore
-    return
+  } else {
+    files.forEach((adbt) => {
+      const contents = readFileSync(adbt, 'utf-8')
+      console.log(aria.parse(contents).nodes)
+    })
   }
-
-  files.forEach((adbt) => {
-    const contents = readFileSync(adbt, 'utf-8')
-    console.log(aria.parse(contents).nodes)
-  })
 } catch (error) {
   setFailed(error.message)
 }
