@@ -31602,29 +31602,27 @@ try {
   const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(token)
   const context = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context
 
-  console.log('HUH')
-  console.log({ context })
-
   let files
 
-  if (context.eventName === 'push') {
-    const commit = context.payload.head_commit.id
-    const { data } = await octokit.rest.repos.getCommit({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      ref: commit,
-    })
-    files = data.files.map((file) => file.filename)
-  } else if (context.eventName === 'pull_request') {
-    const { data } = await octokit.rest.pulls.listFiles({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      pull_number: context.payload.number,
-    })
-    files = data.map((file) => file.filename)
+  const commit = context.payload.head_commit.id
+  const { data } = await octokit.rest.repos.getCommit({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    ref: commit,
+  })
 
-    console.log({ files })
-  }
+  console.log(data)
+
+  files = data.files.map((file) => file.filename)
+  // } else if (context.eventName === 'pull_request') {
+  //   const { data } = await octokit.rest.pulls.listFiles({
+  //     owner: context.repo.owner,
+  //     repo: context.repo.repo,
+  //     pull_number: context.payload.number,
+  //   })
+  //   files = data.map((file) => file.filename)
+
+  console.log({ files })
 } catch (error) {
   (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(error.message)
 }
