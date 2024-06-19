@@ -32,7 +32,7 @@ async function action() {
 
     files.forEach((adbt) => {
       const parsed = aria.parseFile(adbt)
-      console.log(parsed.nodes)
+      parsed.compile()
     })
   } catch (error) {
     setFailed(error.message)
