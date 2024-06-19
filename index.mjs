@@ -1,6 +1,7 @@
 import { setFailed } from '@actions/core'
 import github from '@actions/github'
 import { Aria } from '@igor.dvlpr/aria/dist/lib/compiler/Aria.mjs'
+import { readFileSync } from 'fs'
 
 try {
   console.log('Wow')
@@ -25,7 +26,7 @@ try {
 
   console.log(data)
 
-  files = data.files.map((file) => file.raw_url)
+  files = data.files.map((file) => file.filename)
   // } else if (context.eventName === 'pull_request') {
   //   const { data } = await octokit.rest.pulls.listFiles({
   //     owner: context.repo.owner,
@@ -34,10 +35,10 @@ try {
   //   })
   //   files = data.map((file) => file.filename)
 
-  files.forEach(async (adbt) => {
+  files.forEach((adbt) => {
+    const contents = readFileSync(adbt).toString()
+    console.log(contents)
     // aria.parseFile(adbt)
-    const contents = await fetch(adbt)
-    console.log(await contents.text())
   })
 } catch (error) {
   setFailed(error.message)
