@@ -31611,6 +31611,8 @@ try {
     ref: commit,
   })
 
+  console.log(data)
+
   files = data.files.map((file) => file.filename)
   // } else if (context.eventName === 'pull_request') {
   //   const { data } = await octokit.rest.pulls.listFiles({
@@ -31620,7 +31622,9 @@ try {
   //   })
   //   files = data.map((file) => file.filename)
 
-  console.log({ files })
+  // files.forEach((adbt) => {
+  //   aria.parseFile(adbt)
+  // })
 } catch (error) {
   (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(error.message)
 }
