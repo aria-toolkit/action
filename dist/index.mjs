@@ -31602,6 +31602,9 @@ try {
   const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(token)
   const context = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context
 
+  console.log('HUH')
+  console.log(context)
+
   let files
 
   if (context.eventName === 'push') {
