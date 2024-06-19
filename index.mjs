@@ -14,6 +14,7 @@ try {
   const octokit = github.getOctokit(token)
   const context = github.context
 
+  console.log('HUH')
   console.log(context)
 
   let files
