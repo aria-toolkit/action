@@ -33997,9 +33997,10 @@ async function action() {
       (0,core.setFailed)('No changed files found.')
       return
     }
+
     files.forEach((adbt) => {
-      const contents = (0,external_fs_.readFileSync)(adbt, 'utf-8')
-      console.log(aria.parse(contents).nodes)
+      const parsed = aria.parseFile(adbt)
+      console.log(parsed.nodes)
     })
   } catch (error) {
     (0,core.setFailed)(error.message)
