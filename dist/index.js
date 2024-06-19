@@ -31082,6 +31082,7 @@ const core = __nccwpck_require__(2186)
 const github = __nccwpck_require__(5438)
 
 try {
+  console.log('Wow')
 } catch (error) {
   core.setFailed(error.message)
 }
