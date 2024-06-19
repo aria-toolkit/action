@@ -4,7 +4,10 @@ import { Aria } from '@igor.dvlpr/aria/dist/lib/compiler/Aria.mjs'
 
 try {
   console.log('Wow')
-  const aria = new Aria()
+  const aria = new Aria({
+    shouldLog: false,
+    versioning: 'auto',
+  })
   console.log(aria)
 } catch (error) {
   setFailed(error.message)
