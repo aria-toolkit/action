@@ -36,7 +36,7 @@ try {
   //   files = data.map((file) => file.filename)
 
   files.forEach((adbt) => {
-    const contents = readFileSync(adbt).toString()
+    const contents = readFileSync(`./${adbt}`).toString()
     console.log(contents)
     // aria.parseFile(adbt)
   })
