@@ -1,7 +1,8 @@
 {
 	"name": "aria-gh-action",
-	"version": "0.0.3",
-	"main": "dist/index.js",
+	"version": "0.0.4",
+	"main": "dist/index.mjs",
+	"module": "dist/index.mjs",
 	"scripts": {},
 	"keywords": [],
 	"author": "Igor Dimitrijević <igor.dvlpr@gmail.com> (https://github.com/igorskyflyer)",
