@@ -33972,7 +33972,10 @@ process.on('uncaughtException', handleUncaughtException);
 
 try {
   console.log('Wow')
-  const aria = new Aria()
+  const aria = new Aria({
+    shouldLog: false,
+    versioning: 'auto',
+  })
   console.log(aria)
 } catch (error) {
   (0,core.setFailed)(error.message)
