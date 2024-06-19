@@ -14,6 +14,8 @@ try {
   const octokit = github.getOctokit(token)
   const context = github.context
 
+  console.log(context)
+
   let files
 
   if (context.eventName === 'push') {
