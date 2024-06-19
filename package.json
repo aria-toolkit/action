@@ -1,6 +1,6 @@
 {
 	"name": "aria-gh-action",
-	"version": "0.0.16",
+	"version": "0.0.17",
 	"main": "dist/index.mjs",
 	"module": "dist/index.mjs",
 	"scripts": {},
