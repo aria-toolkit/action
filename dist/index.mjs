@@ -31603,7 +31603,7 @@ try {
   const context = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context
 
   console.log('HUH')
-  console.log(context)
+  console.log({ context })
 
   let files
 
@@ -31623,7 +31623,7 @@ try {
     })
     files = data.map((file) => file.filename)
 
-    console.log(files)
+    console.log({ files })
   }
 } catch (error) {
   (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(error.message)
