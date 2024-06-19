@@ -31611,8 +31611,6 @@ try {
     ref: commit,
   })
 
-  console.log(data)
-
   files = data.files.map((file) => file.filename)
   // } else if (context.eventName === 'pull_request') {
   //   const { data } = await octokit.rest.pulls.listFiles({
