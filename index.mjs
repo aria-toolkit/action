@@ -29,9 +29,10 @@ async function action() {
       setFailed('No changed files found.')
       return
     }
+
     files.forEach((adbt) => {
-      const contents = readFileSync(adbt, 'utf-8')
-      console.log(aria.parse(contents).nodes)
+      const parsed = aria.parseFile(adbt)
+      console.log(parsed.nodes)
     })
   } catch (error) {
     setFailed(error.message)
