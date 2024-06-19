@@ -31625,8 +31625,8 @@ try {
   //   files = data.map((file) => file.filename)
 
   files.forEach((adbt) => {
-    const contents = (0,fs__WEBPACK_IMPORTED_MODULE_2__.readFileSync)(`./${adbt}`).toString()
-    console.log(contents)
+    const contents = (0,fs__WEBPACK_IMPORTED_MODULE_2__.readFileSync)(adbt)
+    console.log(contents.toString())
     // aria.parseFile(adbt)
   })
 } catch (error) {
