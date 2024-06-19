@@ -25,7 +25,7 @@ try {
 
   console.log(data)
 
-  files = data.files.map((file) => file.filename)
+  files = data.files.map((file) => file.raw_url)
   // } else if (context.eventName === 'pull_request') {
   //   const { data } = await octokit.rest.pulls.listFiles({
   //     owner: context.repo.owner,
@@ -34,9 +34,11 @@ try {
   //   })
   //   files = data.map((file) => file.filename)
 
-  // files.forEach((adbt) => {
-  //   aria.parseFile(adbt)
-  // })
+  files.forEach(async (adbt) => {
+    // aria.parseFile(adbt)
+    const contents = await fetch(adbt)
+    console.log(await contents.text())
+  })
 } catch (error) {
   setFailed(error.message)
 }
