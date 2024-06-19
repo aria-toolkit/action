@@ -15,7 +15,7 @@ try {
   const context = github.context
 
   console.log('HUH')
-  console.log(context)
+  console.log({ context })
 
   let files
 
@@ -35,7 +35,7 @@ try {
     })
     files = data.map((file) => file.filename)
 
-    console.log(files)
+    console.log({ files })
   }
 } catch (error) {
   setFailed(error.message)
