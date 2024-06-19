@@ -3,3 +3,5 @@ description: 'Compile ADBT templates with Aria, the compiler.'
 runs:
   using: 'node20'
   main: 'dist/index.mjs'
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
