@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Aria compiler'
+description: 'Compile ADBT templates with Aria, the compiler.'
 inputs:
   who-to-greet: # id of input
     description: 'Who to greet'
