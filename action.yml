@@ -1,8 +1,5 @@
 name: 'Aria compiler'
 description: 'Compile ADBT templates with Aria, the compiler.'
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v3
 runs:
   using: 'node20'
   main: 'dist/index.mjs'
